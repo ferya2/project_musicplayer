@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
+import 'package:spoticok_apk/view/welcomepage/spoticok_signup2.dart';
 
 class SignUp1 extends StatelessWidget {
   const SignUp1({super.key});
@@ -76,7 +77,12 @@ class SignUp1 extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
                         )),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUp2()));
+                    },
                     child: Text(
                       'Next',
                       style: AppTextStyle.btnCreateAccTextStyle,

@@ -17,13 +17,13 @@ class _SignUp2State extends State<SignUp2> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: ColorsCollection.bgColor,
-        title: Text('Create Account', style: AppTextStyle.appBarTitleStyle),
+        backgroundColor: ColorsCollection.blackGrey,
+        title: Text('Create Account', style: AppTextStyle.appbarTextStyle),
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: ColorFiltered(
               colorFilter: ColorFilter.mode(
-                ColorsCollection.bgCircleIcon,
+                ColorsCollection.blackGrey,
                 BlendMode.hue,
               ),
               child: GestureDetector(
@@ -51,7 +51,7 @@ class _SignUp2State extends State<SignUp2> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 26.0), 
+                const SizedBox(height: 26.0),
                 Text(
                   'Create a password',
                   style: AppTextStyle.textStylepw,
@@ -62,36 +62,41 @@ class _SignUp2State extends State<SignUp2> {
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         width: 0.5,
                       ),
                     ),
                   ),
-                ), 
+                ),
+                const SizedBox(height: 4),
                 Text(
                   'Use at least 8 characters.',
                   style: AppTextStyle.textStylepwsm,
                 ),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignUp3(),
+                  child: SizedBox(
+                    height: 42,
+                    width: 82,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUp3(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorsCollection.signBtn,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(21.0),
                         ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: ColorsCollection.signBtn,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(21.0),
                       ),
-                    ),
-                    child: Text(
-                      'Next',
-                      style: AppTextStyle.textStylepwbtn,
+                      child: Text(
+                        'Next',
+                        style: AppTextStyle.textStylepwbtn,
+                      ),
                     ),
                   ),
                 ),

@@ -16,13 +16,13 @@ class _SignUp3State extends State<SignUp3> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: ColorsCollection.bgColor,
-        title: Text('Create Account', style: AppTextStyle.appBarTitleStyle),
+        backgroundColor: ColorsCollection.blackGrey,
+        title: Text('Create Account', style: AppTextStyle.appbarTextStyle),
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: ColorFiltered(
               colorFilter: ColorFilter.mode(
-                ColorsCollection.bgCircleIcon,
+                ColorsCollection.blackGrey,
                 BlendMode.hue,
               ),
               child: GestureDetector(
@@ -50,9 +50,9 @@ class _SignUp3State extends State<SignUp3> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 26.0), 
+                const SizedBox(height: 26.0),
                 Text(
-                  'What\’s your age?',
+                  'What\'s your age?',
                   style: AppTextStyle.textStylepw,
                 ),
                 TextField(
@@ -61,32 +61,36 @@ class _SignUp3State extends State<SignUp3> {
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         width: 0.5,
                       ),
                     ),
                   ),
-                ), 
-                SizedBox(height: 30.0),
+                ),
+                const SizedBox(height: 48.0),
                 Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => SecondScreen(),
-                      //   ),
-                      // );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: ColorsCollection.signBtn,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(21.0),
+                  child: SizedBox(
+                    height: 42,
+                    width: 82,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => SecondScreen(),
+                        //   ),
+                        // );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorsCollection.signBtn,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(21.0),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      'Next',
-                      style: AppTextStyle.textStylepwbtn,
+                      child: Text(
+                        'Next',
+                        style: AppTextStyle.textStylepwbtn,
+                      ),
                     ),
                   ),
                 ),
