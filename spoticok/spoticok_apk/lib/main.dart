@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spoticok_apk/view/welcomepage/spoticok_signup2.dart';
+import 'package:spoticok_apk/view/welcomepage/spoticok_welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SignUp2(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: WelcomePage(),
     );
   }
 }
