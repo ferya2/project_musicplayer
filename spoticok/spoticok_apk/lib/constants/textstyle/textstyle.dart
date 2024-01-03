@@ -10,15 +10,15 @@ class AppTextStyle {
   static TextStyle appBarTitleStyle = GoogleFonts.prompt(
       fontSize: 16,
       fontWeight: FontWeight.w700,
-      color: ColorsCollection.textColor);
+      color: ColorsCollection.whiteNeutral);
   static TextStyle textStylepw = GoogleFonts.prompt(
       fontSize: 20,
       fontWeight: FontWeight.w700,
-      color: ColorsCollection.textColor);
+      color: ColorsCollection.whiteNeutral);
   static TextStyle textStylepwsm = GoogleFonts.prompt(
       fontSize: 12,
       fontWeight: FontWeight.w600,
-      color: ColorsCollection.textColor);
+      color: ColorsCollection.whiteNeutral);
   static TextStyle textStylepwbtn = GoogleFonts.prompt(
       fontSize: 15,
       fontWeight: FontWeight.w600,
@@ -51,4 +51,36 @@ class AppTextStyle {
       fontSize: 15,
       fontWeight: FontWeight.w600,
       color: ColorsCollection.blackNeutral);
+  static TextStyle names4TextStyle = GoogleFonts.prompt(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle reqs4TextSyle = GoogleFonts.prompt(
+      fontSize: 12,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle reqs4_2TextSyle = GoogleFonts.prompt(
+      fontSize: 12,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.reqs4TextGr);
+  static TextStyle searchTextSyle = GoogleFonts.prompt(
+      fontSize: 14, 
+      fontWeight: FontWeight.w500, 
+      color: ColorsCollection.blackNeutral);
+  static TextStyle artistNameTextSyle = GoogleFonts.prompt(
+      fontSize: 12.0,
+      fontWeight: FontWeight.w500,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle podcastNameTextSyle = GoogleFonts.prompt(
+      fontSize: 12.0,
+      fontWeight: FontWeight.w500,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle h1PodcastTextSyle = GoogleFonts.prompt(
+      fontSize: 26.0,
+      fontWeight: FontWeight.w700,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle moreGenrePod = GoogleFonts.prompt(
+      fontSize: 14, 
+      fontWeight: FontWeight.w500, 
+      color: ColorsCollection.whiteNeutral);
 }

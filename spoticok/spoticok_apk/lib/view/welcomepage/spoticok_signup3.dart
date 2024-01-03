@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
+import 'package:spoticok_apk/view/welcomepage/spoticok_signup4.dart';
 
 class SignUp3 extends StatefulWidget {
   const SignUp3({Key? key}) : super(key: key);
@@ -74,12 +75,12 @@ class _SignUp3State extends State<SignUp3> {
                     width: 82,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => SecondScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignUp4(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         primary: ColorsCollection.signBtn,
