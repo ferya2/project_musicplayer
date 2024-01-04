@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spoticok_apk/view/home/spoticok_setting.dart';
 import 'package:spoticok_apk/view/welcomepage/spoticok_welcome.dart';
 
 void main() {

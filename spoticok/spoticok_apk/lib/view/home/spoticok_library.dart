@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
+import 'package:spoticok_apk/view/home/spoticok_setting.dart';
 
 class LibraryPage extends StatelessWidget {
   const LibraryPage({super.key});
@@ -55,7 +56,12 @@ class LibraryPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       )),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingPage()));
+                  },
                   child: Text(
                     'Edit Profile',
                     style: AppTextStyle.btnNavBar2TextStyle,
