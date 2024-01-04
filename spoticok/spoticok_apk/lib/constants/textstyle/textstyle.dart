@@ -100,8 +100,8 @@ class AppTextStyle {
       fontWeight: FontWeight.w600,
       color: ColorsCollection.reqs4TextGr);
   static TextStyle searchTextSyle = GoogleFonts.prompt(
-      fontSize: 14, 
-      fontWeight: FontWeight.w500, 
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
       color: ColorsCollection.blackNeutral);
   static TextStyle artistNameTextSyle = GoogleFonts.prompt(
       fontSize: 12.0,
@@ -116,7 +116,7 @@ class AppTextStyle {
       fontWeight: FontWeight.w700,
       color: ColorsCollection.whiteNeutral);
   static TextStyle moreGenrePod = GoogleFonts.prompt(
-      fontSize: 14, 
-      fontWeight: FontWeight.w500, 
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
       color: ColorsCollection.whiteNeutral);
 }
