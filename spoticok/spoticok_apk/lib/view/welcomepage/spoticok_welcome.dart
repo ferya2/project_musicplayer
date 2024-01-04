@@ -1,6 +1,7 @@
 // welcome_page.dart
 
 import 'package:flutter/material.dart';
+import 'package:spoticok_apk/constants/bottomnav/bottomnav.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/elevatedbutton/elevated_button_welcome.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
@@ -87,7 +88,13 @@ class _WelcomePageState extends State<WelcomePage> {
                 buttonText: 'Continue with Apple'),
             const SizedBox(height: 6),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavBar(),
+                    ));
+              },
               child: Text(
                 'Log in',
                 style: AppTextStyle.btnsignup2TextStyle,
