@@ -46,7 +46,7 @@ class _SignUp3State extends State<SignUp3> {
         height: double.infinity,
         child: SizedBox(
           child: Padding(
-            padding: CustomPadding.SidePadding,
+            padding: CustomPadding.sidePadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,12 +78,12 @@ class _SignUp3State extends State<SignUp3> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignUp4(),
+                            builder: (context) => const SignUp4(),
                           ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: ColorsCollection.signBtn,
+                        backgroundColor: ColorsCollection.signBtn,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(21.0),
                         ),

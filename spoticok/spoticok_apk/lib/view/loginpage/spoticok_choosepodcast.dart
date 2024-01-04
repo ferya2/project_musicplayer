@@ -55,7 +55,7 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
             children: [
               SizedBox(
                 child: Padding(
-                  padding: CustomPadding.SidePadding,
+                  padding: CustomPadding.sidePadding,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,8 +81,8 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
                               ),
                             ),
                             contentPadding:
-                                EdgeInsets.symmetric(vertical: 12.0),
-                            prefixIcon: Icon(
+                                const EdgeInsets.symmetric(vertical: 12.0),
+                            prefixIcon: const Icon(
                               Icons.search,
                             ),
                           ),
@@ -96,7 +96,7 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
               const SizedBox(height: 26.0),
               Expanded(
                 child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: 0.5,
                     mainAxisSpacing: 35.0,
@@ -127,9 +127,9 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Visibility(
-        visible: selectedPodcasts.length >= 1,
+        visible: selectedPodcasts.isNotEmpty,
         child: Container(
-          margin: EdgeInsets.only(bottom: 60.0),
+          margin: const EdgeInsets.only(bottom: 60.0),
           child: SizedBox(
             height: 42,
             width: 82,
@@ -164,13 +164,14 @@ class GridItem extends StatefulWidget {
   final String podcastName;
   final Function(int) onSelected;
 
-  GridItem({
+  const GridItem({super.key, 
     required this.imagePath2,
     required this.podcastName,
     required this.onSelected,
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _GridItemState createState() => _GridItemState();
 }
 
@@ -200,7 +201,7 @@ class _GridItemState extends State<GridItem> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
-                        color: isSelected ? ColorsCollection.reqs4TextGr : ColorsCollection.transparent,
+                        color: isSelected ? ColorsCollection.greenNeutral : ColorsCollection.transparent,
                         width: 2.0,
                       ),
                     ),
@@ -214,16 +215,16 @@ class _GridItemState extends State<GridItem> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Flexible(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Center(
                         child: Text(
                           widget.podcastName,
                           style: AppTextStyle.podcastNameTextSyle.copyWith(
                             color: isSelected
-                                ? ColorsCollection.reqs4TextGr
+                                ? ColorsCollection.greenNeutral
                                 : AppTextStyle.podcastNameTextSyle.color,
                           ),
                           textAlign: TextAlign.center,

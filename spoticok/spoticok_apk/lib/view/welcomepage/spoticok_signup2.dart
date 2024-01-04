@@ -46,7 +46,7 @@ class _SignUp2State extends State<SignUp2> {
         height: double.infinity,
         child: SizedBox(
           child: Padding(
-            padding: CustomPadding.SidePadding,
+            padding: CustomPadding.sidePadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +88,7 @@ class _SignUp2State extends State<SignUp2> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: ColorsCollection.signBtn,
+                        backgroundColor: ColorsCollection.signBtn,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(21.0),
                         ),

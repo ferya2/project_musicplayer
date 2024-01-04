@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
-import 'package:spoticok_apk/view/welcomepage/spoticok_chooseartist.dart';
+import 'package:spoticok_apk/view/loginpage/spoticok_chooseartist.dart';
 
 class SignUp4 extends StatefulWidget {
   const SignUp4({Key? key}) : super(key: key);
@@ -123,7 +123,7 @@ class _SignUp4State extends State<SignUp4> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: ColorsCollection.reqs4CreateBtn,
+                        backgroundColor: ColorsCollection.reqs4CreateBtn,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(21.0),
                         ),
@@ -152,7 +152,7 @@ class _SignUp4State extends State<SignUp4> {
           Flexible(
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -174,9 +174,9 @@ class _SignUp4State extends State<SignUp4> {
               height: 20.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: value ? Colors.green : Colors.transparent,
+                color: value ? ColorsCollection.greenNeutral : ColorsCollection.transparent,
                 border: Border.all(
-                  color: value ? Colors.green : Color(0xFF727272),
+                  color: value ? ColorsCollection.greenNeutral : ColorsCollection.checkMarkOutline,
                   width: 2.0,
                 ),
               ),
@@ -184,7 +184,7 @@ class _SignUp4State extends State<SignUp4> {
                   ? Icon(
                       Icons.check,
                       size: 16.0,
-                      color: Colors.white,
+                      color: ColorsCollection.whiteNeutral,
                     )
                   : null,
             ),

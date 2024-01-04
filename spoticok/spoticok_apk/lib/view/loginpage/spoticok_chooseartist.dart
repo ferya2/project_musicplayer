@@ -1,10 +1,9 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
-import 'package:spoticok_apk/view/welcomepage/spoticok_choosepodcast.dart';
+import 'package:spoticok_apk/view/loginpage/spoticok_choosepodcast.dart';
 
 class ChooseArtist extends StatefulWidget {
   const ChooseArtist({Key? key}) : super(key: key);
@@ -95,7 +94,7 @@ class _ChooseArtistState extends State<ChooseArtist> {
           children: [
             SizedBox(
               child: Padding(
-                padding: CustomPadding.SidePadding,
+                padding: CustomPadding.sidePadding,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,8 +114,8 @@ class _ChooseArtistState extends State<ChooseArtist> {
                               width: 0.5,
                             ),
                           ),
-                          contentPadding: EdgeInsets.symmetric(vertical: 12.0),
-                          prefixIcon: Icon(
+                          contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
+                          prefixIcon: const Icon(
                             Icons.search,
                           ),
                         ),
@@ -130,7 +129,7 @@ class _ChooseArtistState extends State<ChooseArtist> {
             const SizedBox(height: 26.0),
             Expanded(
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 0.5,
                   mainAxisSpacing: 35.0,
@@ -162,7 +161,7 @@ class _ChooseArtistState extends State<ChooseArtist> {
       floatingActionButton: Visibility(
         visible: selectedArtists.length >= 3,
         child: Container(
-          margin: EdgeInsets.only(bottom: 60.0),
+          margin: const EdgeInsets.only(bottom: 60.0),
           child: SizedBox(
             height: 42,
             width: 82,
@@ -197,13 +196,14 @@ class GridItem extends StatefulWidget {
   final String artistName;
   final Function(int) onSelected;
 
-  GridItem({
+  const GridItem({super.key, 
     required this.imagePath,
     required this.artistName,
     required this.onSelected,
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _GridItemState createState() => _GridItemState();
 }
 
@@ -237,10 +237,10 @@ class _GridItemState extends State<GridItem> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Flexible(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Center(
                         child: Text(
                           widget.artistName,
@@ -260,7 +260,7 @@ class _GridItemState extends State<GridItem> {
                   right: 10,
                   child: Icon(
                     Icons.check_circle,
-                    color: Colors.green,
+                    color: ColorsCollection.greenNeutral,
                     size: 20.0,
                   ),
                 ),
