@@ -62,7 +62,7 @@ class AppTextStyle {
   static TextStyle reqs4_2TextSyle = GoogleFonts.prompt(
       fontSize: 12,
       fontWeight: FontWeight.w600,
-      color: ColorsCollection.reqs4TextGr);
+      color: ColorsCollection.greenNeutral);
   static TextStyle searchTextSyle = GoogleFonts.prompt(
       fontSize: 14, 
       fontWeight: FontWeight.w500, 
