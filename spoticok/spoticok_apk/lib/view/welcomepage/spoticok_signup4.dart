@@ -19,7 +19,7 @@ class _SignUp4State extends State<SignUp4> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: ColorsCollection.bgColor,
+        backgroundColor: ColorsCollection.blackGrey,
         title: Text('Create Account', style: AppTextStyle.appbarTextStyle),
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
@@ -43,101 +43,105 @@ class _SignUp4State extends State<SignUp4> {
         elevation: 0,
       ),
       body: Container(
-        color: ColorsCollection.bgColor,
+        color: ColorsCollection.blackGrey,
         width: double.infinity,
         height: double.infinity,
-        child: SizedBox(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 26.0),
-                Text('What\'s your name?', 
-                  style: AppTextStyle.names4TextStyle),
-                TextField(
-                  decoration: InputDecoration(
-                    fillColor: ColorsCollection.textField,
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide: const BorderSide(
-                        width: 0.5,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  'This appears on your spotify profile',
-                  style: AppTextStyle.reqs4TextSyle,
-                ),
-                const SizedBox(height: 30.0),
-                Divider(
-                  color: ColorsCollection.whiteNeutral,
-                ),
-                const SizedBox(height: 25.0),
-                Text(
-                  'By tapping on “Create account”, you agree to the spotify Terms of Use.',
-                  style: AppTextStyle.reqs4TextSyle,
-                ),
-                const SizedBox(height: 25.0),
-                Text(
-                  'Terms of Use',
-                  style: AppTextStyle.reqs4_2TextSyle,
-                ),
-                const SizedBox(height: 25.0),
-                Text(
-                  'To learn more about how Spotify collect, uses, shares and protects your personal data, Please see the Spotify Privacy Policy.',
-                  style: AppTextStyle.reqs4TextSyle,
-                ),
-                const SizedBox(height: 25.0),
-                Text(
-                  'Privacy Policy',
-                  style: AppTextStyle.reqs4_2TextSyle,
-                ),
-                Column(
-                  children: <Widget>[
-                    const SizedBox(height: 25.0),
-                    buildRow('Please send me news and offers from Spotify',
-                        newsAndOffers),
-                    const SizedBox(height: 15.0),
-                    buildRow(
-                        'Share my registration data with Spotify\’s content providers for marketing purposes',
-                        shareData),
-                  ],
-                ),
-                const SizedBox(height: 250.0),
-                Center(
-                  child: SizedBox(
-                    height: 42,
-                    width: 179,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ChooseArtist(),
+        child: ListView(
+          children: [
+            SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 26.0),
+                    Text('What\'s your name?', 
+                      style: AppTextStyle.names4TextStyle),
+                    TextField(
+                      decoration: InputDecoration(
+                        fillColor: ColorsCollection.textField,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          borderSide: const BorderSide(
+                            width: 0.5,
                           ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorsCollection.reqs4CreateBtn,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(21.0),
                         ),
                       ),
-                      child: Text(
-                        'Create an account',
-                        style: AppTextStyle.btnCreateAccTextStyle,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'This appears on your spotify profile',
+                      style: AppTextStyle.reqs4TextSyle,
+                    ),
+                    const SizedBox(height: 30.0),
+                    Divider(
+                      color: ColorsCollection.whiteNeutral,
+                    ),
+                    const SizedBox(height: 25.0),
+                    Text(
+                      'By tapping on “Create account”, you agree to the spotify Terms of Use.',
+                      style: AppTextStyle.reqs4TextSyle,
+                    ),
+                    const SizedBox(height: 25.0),
+                    Text(
+                      'Terms of Use',
+                      style: AppTextStyle.reqs4_2TextSyle,
+                    ),
+                    const SizedBox(height: 25.0),
+                    Text(
+                      'To learn more about how Spotify collect, uses, shares and protects your personal data, Please see the Spotify Privacy Policy.',
+                      style: AppTextStyle.reqs4TextSyle,
+                    ),
+                    const SizedBox(height: 25.0),
+                    Text(
+                      'Privacy Policy',
+                      style: AppTextStyle.reqs4_2TextSyle,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        const SizedBox(height: 25.0),
+                        buildRow('Please send me news and offers from Spotify',
+                            newsAndOffers),
+                        const SizedBox(height: 15.0),
+                        buildRow(
+                            'Share my registration data with Spotify\’s content providers for marketing purposes',
+                            shareData),
+                      ],
+                    ),
+                    const SizedBox(height: 250.0),
+                    Center(
+                      child: SizedBox(
+                        height: 42,
+                        width: 179,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ChooseArtist(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: ColorsCollection.reqs4CreateBtn,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(21.0),
+                            ),
+                          ),
+                          child: Text(
+                            'Create an account',
+                            style: AppTextStyle.btnCreateAccTextStyle,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

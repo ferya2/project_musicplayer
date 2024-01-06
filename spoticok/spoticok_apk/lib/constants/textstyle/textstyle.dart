@@ -83,6 +83,14 @@ class AppTextStyle {
       fontSize: 13,
       fontWeight: FontWeight.w500,
       color: ColorsCollection.textSubList);
+  static TextStyle subTextGrid = GoogleFonts.prompt(
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      color: ColorsCollection.textSubList);
+  static TextStyle subTextLisOnListTile = GoogleFonts.prompt(
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
+      color: ColorsCollection.greenSpot);
   static TextStyle textSearch2TextStyle = GoogleFonts.prompt(
       fontSize: 15,
       fontWeight: FontWeight.w500,
@@ -118,5 +126,53 @@ class AppTextStyle {
   static TextStyle moreGenrePod = GoogleFonts.prompt(
       fontSize: 14,
       fontWeight: FontWeight.w500,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle listOnTextStyle = GoogleFonts.prompt(
+      fontSize: 25,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle listOn2TextStyle = GoogleFonts.prompt(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle listOn3TextStyle = GoogleFonts.prompt(
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle listOn4TextStyle = GoogleFonts.prompt(
+      fontSize: 18,
+      fontWeight: FontWeight.w700,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle listOn5TextStyle = GoogleFonts.prompt(
+      fontSize: 12.50,
+      fontWeight: FontWeight.w500,
+      color: ColorsCollection.textSubList);
+  static TextStyle listOnBtnTextStyle = GoogleFonts.prompt(
+      fontSize: 17,
+      fontWeight: FontWeight.w700,
+      color: ColorsCollection.blackNeutral);
+  static TextStyle listOnBtn2TextStyle = GoogleFonts.prompt(
+      fontSize: 13,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle urLibTextStyle = GoogleFonts.prompt(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle urLibChildTextStyle = GoogleFonts.prompt(
+      fontSize: 15,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle urLibChildBotTextStyle = GoogleFonts.prompt(
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle urLibChildGridTextStyle = GoogleFonts.prompt(
+      fontSize: 11,
+      fontWeight: FontWeight.w600,
+      color: ColorsCollection.whiteNeutral);
+  static TextStyle titlemoreTextStyle = GoogleFonts.prompt(
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
       color: ColorsCollection.whiteNeutral);
 }

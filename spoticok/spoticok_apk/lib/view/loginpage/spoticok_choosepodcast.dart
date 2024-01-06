@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:spoticok_apk/constants/bottomnav/bottomnav.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
@@ -41,7 +44,26 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
     "GJLS",
   ];
 
-  List<String> selectedPodcasts = [];
+  List<Color> pastelColors = [];
+
+  Color generatePastelColor() {
+    Random random = Random();
+    int r = 64 + random.nextInt(64);
+    int g = 64 + random.nextInt(64);
+    int b = 64 + random.nextInt(64);
+    return Color.fromARGB(255, r, g, b);
+  }
+
+  List<int> selectedPodcasts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Generate pastel colors for each item
+    for (int i = 0; i < imagePaths.length; i++) {
+      pastelColors.add(generatePastelColor());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,30 +117,116 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
               ),
               const SizedBox(height: 26.0),
               Expanded(
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 0.5,
-                    mainAxisSpacing: 35.0,
-                  ),
-                  itemCount: imagePaths.length,
-                  itemBuilder: (context, index) {
-                    return GridItem(
-                      imagePath2: imagePaths[index],
-                      podcastName: podcastTitles[index],
-                      onSelected: (isSelected) {
-                        setState(() {
-                          if (isSelected == 1) {
-                            if (!selectedPodcasts.contains(imagePaths[index])) {
-                              selectedPodcasts.add(imagePaths[index]);
-                            }
-                          } else {
-                            selectedPodcasts.remove(imagePaths[index]);
-                          }
-                        });
+                child: Container(
+                  color: ColorsCollection.blackGrey,
+                  child: Padding(
+                    padding: CustomPadding.k2SidePadding,
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 10.0,
+                        mainAxisSpacing: 8.0,
+                        childAspectRatio: 0.7,
+                      ),
+                      itemCount: imagePaths.length,
+                      itemBuilder: (context, index) {
+                        bool isSelected = selectedPodcasts.contains(index);
+                        bool isOutlineVisible = !((index + 1) % 3 == 0);
+                        Color buttonColor = pastelColors[index];
+
+
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (isSelected) {
+                                selectedPodcasts.remove(index);
+                              } else {
+                                selectedPodcasts.add(index);
+                              }
+                            });
+                          },
+                          child: Container(
+                            child: Column(
+                              children: [
+                                if (isOutlineVisible)
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                        color: isSelected
+                                            ? Colors.green
+                                            : Colors.transparent,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        imagePaths[index],
+                                        height: MediaQuery.of(context)
+                                                .size
+                                                .width /
+                                            4 *
+                                            1.13,
+                                        width: MediaQuery.of(context)
+                                                .size
+                                                .width /
+                                            4 *
+                                            1.13,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  )
+                                else
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      // Handle button click
+                                    },
+                                    style: ButtonStyle(
+                                      fixedSize: MaterialStateProperty.all(
+                                        Size(
+                                          MediaQuery.of(context).size.width /
+                                              4 *
+                                              1.13,
+                                          MediaQuery.of(context).size.width /
+                                              4 *
+                                              1.13,
+                                        ),
+                                      ),
+                                      shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(buttonColor),
+                                    ),
+                                    child: Text(
+                                      'More Podcast',
+                                      style:
+                                          AppTextStyle.podcastNameTextSyle,
+                                    ),
+                                  ),
+                                const SizedBox(height: 8.0),
+                                Text(
+                                  isOutlineVisible
+                                      ? podcastTitles[index]
+                                      : '   ',
+                                  style: AppTextStyle.podcastNameTextSyle,
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
                       },
-                    );
-                  },
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -135,12 +243,12 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
             width: 82,
             child: FloatingActionButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const ChoosePodcast(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BottomNavBar(),
+                  ),
+                );
               },
               elevation: 4.0,
               backgroundColor: ColorsCollection.whiteNeutral,
@@ -152,101 +260,6 @@ class _ChoosePodcastState extends State<ChoosePodcast> {
                 style: AppTextStyle.btnCreateAccTextStyle,
               ),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class GridItem extends StatefulWidget {
-  final String imagePath2;
-  final String podcastName;
-  final Function(int) onSelected;
-
-  const GridItem({super.key, 
-    required this.imagePath2,
-    required this.podcastName,
-    required this.onSelected,
-  });
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _GridItemState createState() => _GridItemState();
-}
-
-class _GridItemState extends State<GridItem> {
-  bool isSelected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Opacity(
-      opacity: 0.8,
-      child: Card(
-        color: Colors.transparent,
-        elevation: 0,
-        child: InkWell(
-          onTap: () {
-            setState(() {
-              isSelected = !isSelected;
-            });
-
-            widget.onSelected(isSelected ? 1 : -1);
-          },
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        color: isSelected ? ColorsCollection.greenNeutral : ColorsCollection.transparent,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image.asset(
-                        widget.imagePath2,
-                        width: 110.0,
-                        height: 110.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 8.0),
-                  Flexible(
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Center(
-                        child: Text(
-                          widget.podcastName,
-                          style: AppTextStyle.podcastNameTextSyle.copyWith(
-                            color: isSelected
-                                ? ColorsCollection.greenNeutral
-                                : AppTextStyle.podcastNameTextSyle.color,
-                          ),
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.visible,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              // if (isSelected)
-              //   Positioned(
-              //     top: 5,
-              //     right: 10,
-              //     child: Icon(
-              //       Icons.check_circle,
-              //       color: Colors.green,
-              //       size: 20.0,
-              //     ),
-              //   ),
-            ],
           ),
         ),
       ),

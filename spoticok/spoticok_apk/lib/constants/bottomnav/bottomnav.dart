@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
 import 'package:spoticok_apk/view/home/spoticok_homepage.dart';
-import 'package:spoticok_apk/view/home/spoticok_library.dart';
-import 'package:spoticok_apk/view/home/spoticok_search.dart';
 import 'package:spoticok_apk/view/home/spoticok_search1.dart';
+import 'package:spoticok_apk/view/home/spoticok_yourlibrary.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -19,7 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final screen = [
     const HomePage(),
     const SearchPageOne(),
-    const LibraryPage(),
+    const YourLibraryPage(),
   ];
 
   void _onItemTapped(int index) {

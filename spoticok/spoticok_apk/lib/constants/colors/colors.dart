@@ -30,4 +30,5 @@ class ColorsCollection {
   static Color lessGreen = const Color(0xFFF5F5F5);
   static Color transparent = Colors.transparent;
   static Color checkMarkOutline = const Color(0xFF727272);
+  static Color greenSpot = const Color(0xFF17B54E);
 }

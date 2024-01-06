@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spoticok_apk/constants/bottomsheet/bottomsheetlisteningon.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
 
@@ -62,18 +63,16 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            'images/bgcard.png',
-                            fit: BoxFit.fill,
-                          ),
-                          Text('1 (Remastered)',
-                              style: AppTextStyle.btnNavBar2TextStyle),
-                        ],
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'images/bgcard.png',
+                          fit: BoxFit.fill,
+                        ),
+                        Text('1 (Remastered)',
+                            style: AppTextStyle.btnNavBar2TextStyle),
+                      ],
                     ),
                     const SizedBox(width: 16),
                     Column(
@@ -301,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Row(
                     children: [
-                      Container(
+                      SizedBox(
                         width: 40,
                         height: 40,
                         child: ClipRRect(
@@ -335,9 +334,23 @@ class _HomePageState extends State<HomePage> {
                             )
                           ]),
                       const SizedBox(width: 15),
-                      Icon(
-                        Icons.bluetooth,
-                        color: ColorsCollection.greenNeutral,
+                      IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            elevation: 15.0,
+                            builder: (BuildContext context) {
+                              return BottomSheetWidget(
+                                  height: MediaQuery.of(context).size.height);
+                            },
+                          );
+                        },
+                        icon: Icon(
+                          Icons.bluetooth,
+                          color: ColorsCollection.greenNeutral,
+                        ),
                       ),
                       Icon(Icons.pause, color: ColorsCollection.whiteNeutral),
                     ],
