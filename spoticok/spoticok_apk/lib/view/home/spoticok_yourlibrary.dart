@@ -198,8 +198,7 @@ class _YourLibraryPageState extends State<YourLibraryPage> {
                     Column(
                       children: [
                         ElevatedButton(
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: ColorsCollection.transparent,
@@ -448,6 +447,7 @@ class _YourLibraryPageState extends State<YourLibraryPage> {
   }
 
   void _showBottomSheet(ListItem item) {
+    double containerWidth = MediaQuery.of(context).size.width / 4;
     showModalBottomSheet(
       context: context,
       elevation: 15.0,
@@ -473,6 +473,18 @@ class _YourLibraryPageState extends State<YourLibraryPage> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(height: 24.0),
+              ListTile(
+                leading: _buildLeadingWidget(item, false, containerWidth),
+                title: Text(
+                  item.title,
+                  style: AppTextStyle.urLibChildTextStyle,
+                ),
+              ),
+              const SizedBox(height: 64.0),
+              Divider(
+                color: ColorsCollection.greyNeutral,
               ),
               ListTile(
                 leading: const Icon(Icons.download),
@@ -647,12 +659,10 @@ class _YourLibraryPageState extends State<YourLibraryPage> {
   void _sortItems(String sortBy) {
     setState(() {
       if (sortBy == 'alphabetical') {
-        // Jika sedang diurutkan berdasarkan alfabet, urutkan ulang
         items.sort((a, b) => a.title.compareTo(b.title));
         isRecentlyPlayedSorted = false;
         sortText = 'Alphabetical';
       } else if (sortBy == 'recents') {
-        // Jika sedang diurutkan berdasarkan recents, kembalikan ke default
         items = [];
         _generateListItems();
         isRecentlyPlayedSorted = true;
