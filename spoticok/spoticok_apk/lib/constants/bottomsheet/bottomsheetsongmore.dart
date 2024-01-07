@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spoticok_apk/constants/bottomsheet/bottomsheetsharesong.dart';
 import 'package:spoticok_apk/constants/colors/colors.dart';
 import 'package:spoticok_apk/constants/padding/padding.dart';
 import 'package:spoticok_apk/constants/textstyle/textstyle.dart';
@@ -9,6 +10,7 @@ class BottomSheetSongMore extends StatefulWidget {
   const BottomSheetSongMore({Key? key, required this.height}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _BottomSheetSongMoreState createState() => _BottomSheetSongMoreState();
 }
 
@@ -54,9 +56,10 @@ class _BottomSheetSongMoreState extends State<BottomSheetSongMore> {
                   '1(Remastered)',
                   style: AppTextStyle.titlemoreTextStyle,
                 ),
+                  const SizedBox(height: 4.0,),
                 Text(
                   'The Beatles',
-                  style: AppTextStyle.moreGenrePod,
+                  style: AppTextStyle.artistMore,
                 ),
                 const SizedBox(
                   height: 40.0,
@@ -132,7 +135,7 @@ class _BottomSheetSongMoreState extends State<BottomSheetSongMore> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 25),
                   Row(
                     children: [
                       Image(
@@ -142,13 +145,24 @@ class _BottomSheetSongMoreState extends State<BottomSheetSongMore> {
                         color: ColorsCollection.whiteNeutral,
                       ),
                       const SizedBox(width: 10),
-                      Text(
-                        'Share',
-                        style: AppTextStyle.listOn2TextStyle,
+                      TextButton(
+                        onPressed: () { 
+                          showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              elevation: 15.0,
+                              builder: (BuildContext context) {
+                                return BottomSheetShareSong(
+                                    height: MediaQuery.of(context).size.height);
+                              },
+                            );
+                         }, child: Text('Share',
+                        style: AppTextStyle.listOn2TextStyle, ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 25),
                   Row(
                     children: [
                       Image(
